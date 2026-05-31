@@ -6,7 +6,30 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+/* CHANGE THIS: Make sure it targets '.carousel-slider .list .item' specifically */
+.carousel-slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRunCarousel 18s linear infinite; 
+    transition: filter 0.4s ease, transform 0.4s ease;
+    animation-delay: calc(
+        (18s / var(--quantity)) * (var(--position) - 1) - 18s
+    ) !important;
+}
 
+/* CHANGE THIS: Update the hover state selectors as well */
+.carousel-slider:hover .list .item {
+    animation-play-state: paused !important;
+    filter: grayscale(0.4) brightness(0.9);
+}
+
+.carousel-slider .list .item:hover {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.04);
+    z-index: 10; /* Ensures the hovered image pops above the others */
+}
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,

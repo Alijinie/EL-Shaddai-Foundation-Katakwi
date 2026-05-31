@@ -210,6 +210,100 @@
     line-height: 1.4;
     color: #777777;
 }
+
+/* ==========================================================================
+   Infinite Auto-Scrolling Image Carousel
+   ========================================================================== */
+
+.carousel-section {
+    padding: 4em 0;
+    background-color: #f7f9fa; /* Soft background tint for structural separation */
+    overflow: hidden;
+}
+
+.carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-slider {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    position: relative;
+    /* Softly fades out the incoming and outgoing edge slides */
+    mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
+}
+
+.carousel-slider .list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.carousel-slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRunCarousel 18s linear infinite; /* Adjusted to 18s for smooth cinematic pacing */
+    transition: filter 0.4s ease, transform 0.4s ease;
+    animation-delay: calc(
+        (18s / var(--quantity)) * (var(--position) - 1) - 18s
+    ) !important;
+}
+
+/* Elegant card presentation for gallery images */
+.carousel-card {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    border: 1px solid #eef2f4;
+}
+
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents stretching, clips images uniformly */
+}
+
+@keyframes autoRunCarousel {
+    from {
+        left: 100%;
+    }
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+/* Hover States: Softly dims adjacent items and brightens the targeted item */
+.carousel-slider:hover .list .item {
+    animation-play-state: paused !important;
+    filter: grayscale(0.4) brightness(0.9);
+}
+
+.carousel-slider .list .item:hover {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.04); /* Subtle interactive scaling hint */
+}
+
+/* --- Mobile Viewport Responsiveness --- */
+@media screen and (max-width: 736px) {
+    .carousel-slider {
+        /* Automatically downsizes image targets dynamically on phone viewports */
+        --width: 150px !important;
+        --height: 150px !important;
+    }
+    .carousel-section {
+        padding: 2.5em 0;
+    }
+}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -228,6 +322,7 @@
 						<li><a href="Our Programmes.html">Our Programs</a></li>
 						<li><a href="Core Competencies.html">Core Competencies</a></li>
 						<li><a href="contact.html">Get Involved</a></li>
+                        <li><a href="donate.html">Donate</a></li>
                     <li class="current"><a href="gallery.html">Gallery</a></li>
 					</ul>
 				</nav>
@@ -367,6 +462,59 @@
         </div>
 </section>
 
+<section class="carousel-section">
+    <div class="carousel-container">
+        
+        <header class="major" style="text-align: center; margin-bottom: 2em;">
+            <h2>Impact Snapshots at a Glance</h2>
+            <p>Moving forward together to build long-term communal reliance.</p>
+        </header>
+
+        <div class="carousel-slider" style="--width: 220px; --height: 180px; --quantity: 9;">
+            <div class="list">
+                
+                <div class="item" style="--position: 1">
+                    <div class="carousel-card"><img src="00000.jpg" alt="Primary Schooling Program" /></div>
+                </div>
+                
+                <div class="item" style="--position: 2">
+                    <div class="carousel-card"><img src="66666.jpg" alt="Child Advocacy and Protection" /></div>
+                </div>
+                
+                <div class="item" style="--position: 3">
+                    <div class="carousel-card"><img src="77777.jpg" alt="Mentorship Activities" /></div>
+                </div>
+                
+                <div class="item" style="--position: 4">
+                    <div class="carousel-card"><img src="99999.jpg" alt="Digital Infrastructure Literacy" /></div>
+                </div>
+                
+                <div class="item" style="--position: 5">
+                    <div class="carousel-card"><img src="55.jpeg" alt="Recreational and Creative Expression" /></div>
+                </div>
+                
+                <div class="item" style="--position: 6">
+                    <div class="carousel-card"><img src="555.jpeg" alt="Agricultural Skills Foundation" /></div>
+                </div>
+                
+                <div class="item" style="--position: 7">
+                    <div class="carousel-card"><img src="s.jpg" alt="Faith and Spiritual Support" /></div>
+                </div>
+                
+                <div class="item" style="--position: 8">
+                    <div class="carousel-card"><img src="2.jpeg" alt="Community Health Initiatives" /></div>
+                </div>
+                
+                <div class="item" style="--position: 9">
+                    <div class="carousel-card"><img src="666.jpeg" alt="Vocational Enterprise Training" /></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
 			<div id="footer">
 				<div class="container">
 
@@ -412,6 +560,7 @@
 								<li><a href="index.html">Back to Home</a></li>
 								<li><a href="our-programs.html">Sponsorship Programs</a></li>
 								<li><a href="contact.html">Community Impact</a></li>
+                                <li><a href="donate.html">Donate</a></li>
 							</ul>
 						</section>
 						
@@ -428,7 +577,7 @@
 					<img src="logo.jpg" alt="El-Shaddai Orphanage Logo" class="bottom-Logo-img" />
 					<ul class="menu">
 						<li>&copy; El-Shaddai Orphanage Foundation. All rights reserved.</li>
-						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						
 					</ul>
 				</div>
 
