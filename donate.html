@@ -14,6 +14,35 @@
         max-width: 600px;
         margin: 0 auto;
       }
+      
+      /* --- NEW RESPONSIVE MAINTENANCE STYLING --- */
+      .maintenance-container {
+        text-align: center;
+        padding: 1em 0;
+      }
+      .maintenance-gif {
+        display: block;
+        max-width: 100%;    /* Ensures it shrinks flawlessly on mobile phones */
+        width: 100%;
+        max-width: 420px;   /* Prevents the image from blowing up too large on PCs */
+        height: auto;       /* Maintains perfect aspect ratio */
+        margin: 0 auto 1.5em auto;
+        border-radius: 8px;
+      }
+      .maintenance-title {
+        color: #11143a;
+        font-size: 1.8em;
+        font-weight: 700;
+        margin-bottom: 0.5em;
+      }
+      .maintenance-text {
+        color: #555;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+      /* ------------------------------------------ */
+
       .amount-presets {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -78,115 +107,20 @@
           </header>
 
           <div class="donation-card">
-            <form id="donationForm">
-              
-              <div class="form-group">
-                <label for="currency">Select Currency</label>
-                <select id="currency" name="currency">
-                  <option value="UGX">UGX (Ugandan Shilling)</option>
-                  <option value="USD">USD (United States Dollar)</option>
-                </select>
-              </div>
+            
+            <div class="maintenance-container">
+              <img src="don.gif" alt="System Maintenance" class="maintenance-gif" />
+              <h3 class="maintenance-title">System Upgrades in Progress</h3>
+              <p class="maintenance-text">
+                We are currently optimizing our secure payment channels to serve you better. 
+                Our donation system will be fully live shortly. Thank you for your patience and support!
+              </p>
+            </div>
 
-              <label style="display:block; font-weight:600; margin-bottom:0.5em;">Choose Amount</label>
-              <div class="amount-presets">
-                <button type="button" class="preset-btn" data-val="5">5</button>
-                <button type="button" class="preset-btn" data-val="100">100</button>
-                <button type="button" class="preset-btn" data-val="1000">1000</button>
-                <button type="button" class="preset-btn" id="customTrigger">Custom</button>
-              </div>
-
-              <div class="form-group custom-amount-wrapper">
-                <input type="number" id="amount" name="amount" placeholder="Enter custom amount" required min="1" />
-              </div>
-
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required />
-              </div>
-
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-
-              <button type="submit" class="button donation-submit">Proceed to Secure Payment</button>
-            </form>
-          </div>
-
+            </div>
         </div>
       </section>
-
     </div>
 
-    <script>
-      const presetBtns = document.querySelectorAll('.preset-btn');
-      const amountInput = document.getElementById('amount');
-
-      presetBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          presetBtns.forEach(b => b.classList.remove('active'));
-          if(e.target.dataset.val) {
-            amountInput.value = e.target.dataset.val;
-            e.target.classList.add('active');
-          } else {
-            amountInput.value = '';
-            amountInput.focus();
-            e.target.classList.add('active');
-          }
-        });
-      });
-
-      // Handle submission to our secure processing bridge
-     // Listen for when the donor clicks the submit button
-document.getElementById('donationForm').addEventListener('submit', async (e) => {
-    // 1. Prevent the browser from refreshing the page naturally
-    e.preventDefault();
-    
-    // 2. Gather the input values from your HTML text inputs and save them as standard data types
-    const donorPayload = {
-        amount: parseFloat(document.getElementById('amount').value), // Number data type
-        currency: document.getElementById('currency').value,         // String data type
-        firstName: document.getElementById('firstName').value,       // String data type
-        email: document.getElementById('email').value                // String data type
-    };
-
-    console.log("Packaging up data to send to server...", donorPayload);
-
-    try {
-        // 3. Trigger your Netlify Serverless Function using fetch!
-        // Netlify automatically turns the /netlify/functions/ folder into an accessible URL endpoint
-        const response = await fetch('/.netlify/functions/initiate-payment', {
-            method: 'POST', // We use POST because we are sending data over, not just reading it
-            headers: { 
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(donorPayload) // We must turn our object into a clean string for transport
-        });
-
-        // 4. Wait for the serverless function to reply back with Pesapal's response object
-        const serverResult = await response.json();
-
-        // 5. Use an 'if statement' fundamental to handle success or failure!
-        if (serverResult.redirect_url) {
-            console.log("Redirect URL received! Redirecting donor to secure iframe wrapper...");
-            // Send the donor's browser to the secure Pesapal checkout tab
-            window.location.href = serverResult.redirect_url;
-        } else {
-            // If Pesapal rejected the request (e.g., amount too low or invalid key configuration)
-            alert("Gateway Error: " + serverResult.message);
-        }
-
-    } catch (error) {
-        console.error("Network baseline breakdown:", error);
-        alert("Could not connect to the payment processing engine.");
-    }
-});
-    </script>
-  </body>
+    </body>
 </html>
