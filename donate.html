@@ -13,72 +13,46 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         max-width: 600px;
         margin: 0 auto;
+        text-align: center;
       }
       
-      /* --- NEW RESPONSIVE MAINTENANCE STYLING --- */
-      .maintenance-container {
-        text-align: center;
+      .payment-container {
         padding: 1em 0;
       }
-      .maintenance-gif {
-        display: block;
-        max-width: 100%;    /* Ensures it shrinks flawlessly on mobile phones */
-        width: 100%;
-        max-width: 420px;   /* Prevents the image from blowing up too large on PCs */
-        height: auto;       /* Maintains perfect aspect ratio */
-        margin: 0 auto 1.5em auto;
-        border-radius: 8px;
-      }
-      .maintenance-title {
+      
+      .payment-title {
         color: #11143a;
         font-size: 1.8em;
         font-weight: 700;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.8em;
       }
-      .maintenance-text {
+
+      /* --- RESPONSIVE ANIMATED GIF STYLING --- */
+      .donation-gif {
+        display: block;
+        width: 100%;          /* Allows the image to scale down perfectly on small screens */
+        max-width: 380px;     /* Prevents the image from expanding too large on desktop monitors */
+        height: auto;         /* Maintains the absolute original aspect ratio without distortion */
+        margin: 0 auto 1.5em auto; /* Centers horizontally and adds clean separation breathing room below */
+        border-radius: 6px;   /* Smoothly rounds the corners to match the card theme */
+      }
+      
+      .payment-text {
         color: #555;
         font-size: 1.1em;
         line-height: 1.6;
-        margin-bottom: 0;
+        margin-bottom: 2em;
       }
-      /* ------------------------------------------ */
 
-      .amount-presets {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 12px;
-        margin-bottom: 1.5em;
-      }
-      .preset-btn {
-        background: #6eb0f1;
-        border: 2px solid #eef2f4;
-        padding: 0.75em;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.2s ease;
-      }
-      .preset-btn.active, .preset-btn:hover {
-        background: #11143a;
-        color: #fff;
-        border-color: #11143a;
-      }
-      .custom-amount-wrapper {
-        margin-bottom: 1.5em;
-      }
-      .form-group {
-        margin-bottom: 1.25em;
-      }
-      .form-group label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.5em;
-        color: #333;
-      }
-      .donation-submit {
-        width: 100%;
-        text-align: center;
-        font-weight: 600;
+      .iframe-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60px;
+        background: #f8fafc;
+        border-radius: 6px;
+        padding: 1em;
+        border: 1px dashed #e2e8f0;
       }
     </style>
   </head>
@@ -107,20 +81,24 @@
           </header>
 
           <div class="donation-card">
-            
-            <div class="maintenance-container">
-              <img src="don.gif" alt="System Maintenance" class="maintenance-gif" />
-              <h3 class="maintenance-title">System Upgrades in Progress</h3>
-              <p class="maintenance-text">
-                We are currently optimizing our secure payment channels to serve you better. 
-                Our donation system will be fully live shortly. Thank you for your patience and support!
-              </p>
-            </div>
+            <div class="payment-container">
+              <h3 class="payment-title">Secure Online Donation</h3>
+              
+              <img src="don.gif" alt="Support El-Shaddai Foundation" class="donation-gif" />
 
+              <p class="payment-text">
+                Click below to complete your contribution safely. You will be seamlessly linked to a secure, 
+                self-contained checkout ecosystem protected by Pesapal to input your payment preferences.
+              </p>
+              
+              <div class="iframe-wrapper">
+                <iframe width="200" height="40" src="https://store.pesapal.com/embed-code?pageUrl=https://store.pesapal.com/partnerwithustomakeanimpact" frameborder="0" allowfullscreen></iframe>
+              </div>
             </div>
+          </div>
+
         </div>
       </section>
     </div>
-
-    </body>
+  </body>
 </html>

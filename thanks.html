@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Thank You For Your Support - El-Shaddai Orphanage Foundation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/ma2.css" />
+    <style>
+      /* --- THANK YOU PAGE SPECIFIC STYLES --- */
+      .thank-you-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3em 1em;
+      }
+
+      .thank-you-card {
+        background: #ffffff;
+        padding: 3.5em 2.5em;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        max-width: 650px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        transform: translateY(0);
+        animation: cardEntrance 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      /* Animated Success Emblem */
+      .success-icon-wrapper {
+        width: 100px;
+        height: 100px;
+        background: #f0fdf4;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 1.5em auto;
+        border: 2px solid #bbf7d0;
+        animation: scaleIn 0.5s ease standard 0.3s forwards;
+        opacity: 0;
+        transform: scale(0.6);
+      }
+
+      .success-icon {
+        color: #16a34a;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1;
+      }
+
+      .thank-you-title {
+        color: #11143a;
+        font-size: 2.2em;
+        font-weight: 800;
+        margin-bottom: 0.4em;
+        letter-spacing: -0.5px;
+      }
+
+      .thank-you-subtitle {
+        color: #4b5563;
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 2.5em;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .action-btn-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background-color: #6eb0f1 !important;
+        color: #fff !important;
+        border: none !important;
+        font-weight: 600;
+        padding: 0.75em 2em !important;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #529be3 !important;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background-color: #f3f4f6 !important;
+        color: #1f2937 !important;
+        border: 1px solid #e5e7eb !important;
+        font-weight: 600;
+        padding: 0.75em 2em !important;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-secondary:hover {
+        background-color: #e5e7eb !important;
+      }
+
+      /* --- CSS ANIMATIONS --- */
+      @keyframes cardEntrance {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes scaleIn {
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      /* --- RESPONSIVE BREAKPOINTS --- */
+      @media screen and (max-width: 736px) {
+        .thank-you-card {
+          padding: 2.5em 1.5em;
+        }
+        .thank-you-title {
+          font-size: 1.8em;
+        }
+        .thank-you-subtitle {
+          font-size: 1.05em;
+        }
+        .action-btn-group {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .btn-primary, .btn-secondary {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+
+      <div id="header">
+        <h1><a href="index.html" id="logo">El-Shaddai Orphanage Foundation</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Core Competencies.html">Strategic Goals</a></li>
+            <li><a href="Our Programmes.html">Sponsorship Programs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Get Involved</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <section class="wrapper style1">
+        <div class="container thank-you-wrapper">
+          
+          <div class="thank-you-card">
+            <div class="success-icon-wrapper">
+              <span class="success-icon">✓</span>
+            </div>
+
+            <h2 class="thank-you-title">Generosity Received!</h2>
+            <p class="thank-you-subtitle">
+              Thank you so much for your meaningful contribution. Your support directly provides fundamental healthcare, 
+              holistic nutrition, and primary education options to vulnerable children in Katakwi District, Eastern Uganda.
+            </p>
+
+            <div class="action-btn-group">
+              <a href="index.html" class="btn-primary">Return to Homepage</a>
+              <a href="gallery.html" class="btn-secondary">View Impact Gallery</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        // 1. Initial Center Burst
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#6eb0f1', '#11143a', '#16a34a', '#facc15', '#ec4899']
+        });
+
+        // 2. Delayed Side Cannons for Extra Depth (Fires 300ms later)
+        setTimeout(() => {
+          // Left side shooting up and right
+          confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 0.8 }
+          });
+          // Right side shooting up and left
+          confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 0.8 }
+          });
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
