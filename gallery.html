@@ -138,172 +138,173 @@
 					margin-bottom: 0px !important;
 				}
 			}
-            /* ==========================================================================
-   Modern CSS Grid Gallery Engine
-   ========================================================================== */
+			
+			/* ==========================================================================
+			Modern CSS Grid Gallery Engine
+			========================================================================== */
 
-/* The main layout grid grid container */
-.gallery-grid {
-    display: grid;
-    /* Automatically creates columns that are at least 280px wide, scaling fluidly */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px; /* Elegant spatial breathing room between item blocks */
-    padding: 15px 0;
-}
+			/* The main layout grid grid container */
+			.gallery-grid {
+				display: grid;
+				/* Automatically creates columns that are at least 280px wide, scaling fluidly */
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 25px; /* Elegant spatial breathing room between item blocks */
+				padding: 15px 0;
+			}
 
-/* Individual modern card wrapper */
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    background: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0 4.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+			/* Individual modern card wrapper */
+			.gallery-item {
+				position: relative;
+				overflow: hidden;
+				background: #ffffff;
+				border-radius: 6px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+				transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+							box-shadow 0 4.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+			}
 
-/* Subtle sleek lift effect on hover */
-.gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
+			/* Subtle sleek lift effect on hover */
+			.gallery-item:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+			}
 
-/* Enforces uniform aspect ratios across non-standard user uploads */
-.gallery-image-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 70%; /* Aspect ratio matching roughly 4:3 configurations */
-    overflow: hidden;
-}
+			/* Enforces uniform aspect ratios across non-standard user uploads */
+			.gallery-image-wrapper {
+				position: relative;
+				width: 100%;
+				padding-top: 70%; /* Aspect ratio matching roughly 4:3 configurations */
+				overflow: hidden;
+			}
 
-.gallery-image-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Forces the image to fill space cleanly without squeezing */
-    transition: transform 0.5s ease;
-}
+			.gallery-image-wrapper img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover; /* Forces the image to fill space cleanly without squeezing */
+				transition: transform 0.5s ease;
+			}
 
-/* Zoom feature on photo hover */
-.gallery-item:hover .gallery-image-wrapper img {
-    transform: scale(1.06);
-}
+			/* Zoom feature on photo hover */
+			.gallery-item:hover .gallery-image-wrapper img {
+				transform: scale(1.06);
+			}
 
-/* Dark elegant text dynamic slide caption */
-.gallery-caption {
-    padding: 1.25em;
-    border-top: 1px solid #f0f0f0;
-}
+			/* Dark elegant text dynamic slide caption */
+			.gallery-caption {
+				padding: 1.25em;
+				border-top: 1px solid #f0f0f0;
+			}
 
-.gallery-caption h4 {
-    margin: 0 0 0.3em 0 !important;
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #3a3a3a;
-}
+			.gallery-caption h4 {
+				margin: 0 0 0.3em 0 !important;
+				font-size: 1.1em;
+				font-weight: 600;
+				color: #3a3a3a;
+			}
 
-.gallery-caption p {
-    margin: 0 !important;
-    font-size: 0.9em;
-    line-height: 1.4;
-    color: #777777;
-}
+			.gallery-caption p {
+				margin: 0 !important;
+				font-size: 0.9em;
+				line-height: 1.4;
+				color: #777777;
+			}
 
-/* ==========================================================================
-   Infinite Auto-Scrolling Image Carousel
-   ========================================================================== */
+			/* ==========================================================================
+			Infinite Auto-Scrolling Image Carousel
+			========================================================================== */
 
-.carousel-section {
-    padding: 4em 0;
-    background-color: #f7f9fa; /* Soft background tint for structural separation */
-    overflow: hidden;
-}
+			.carousel-section {
+				padding: 4em 0;
+				background-color: #f7f9fa; /* Soft background tint for structural separation */
+				overflow: hidden;
+			}
 
-.carousel-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+			.carousel-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
 
-.carousel-slider {
-    width: 100%;
-    height: var(--height);
-    overflow: hidden;
-    position: relative;
-    /* Softly fades out the incoming and outgoing edge slides */
-    mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
-}
+			.carousel-slider {
+				width: 100%;
+				height: var(--height);
+				overflow: hidden;
+				position: relative;
+				/* Softly fades out the incoming and outgoing edge slides */
+				mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
+				-webkit-mask-image: linear-gradient(to right, transparent, #000 15% 85%, transparent);
+			}
 
-.carousel-slider .list {
-    display: flex;
-    width: 100%;
-    min-width: calc(var(--width) * var(--quantity));
-    position: relative;
-}
+			.carousel-slider .list {
+				display: flex;
+				width: 100%;
+				min-width: calc(var(--width) * var(--quantity));
+				position: relative;
+			}
 
-.carousel-slider .list .item {
-    width: var(--width);
-    height: var(--height);
-    position: absolute;
-    left: 100%;
-    animation: autoRunCarousel 18s linear infinite; /* Adjusted to 18s for smooth cinematic pacing */
-    transition: filter 0.4s ease, transform 0.4s ease;
-    animation-delay: calc(
-        (18s / var(--quantity)) * (var(--position) - 1) - 18s
-    ) !important;
-}
+			.carousel-slider .list .item {
+				width: var(--width);
+				height: var(--height);
+				position: absolute;
+				left: 100%;
+				animation: autoRunCarousel 18s linear infinite; /* Adjusted to 18s for smooth cinematic pacing */
+				transition: filter 0.4s ease, transform 0.4s ease;
+				animation-delay: calc(
+					(18s / var(--quantity)) * (var(--position) - 1) - 18s
+				) !important;
+			}
 
-/* Elegant card presentation for gallery images */
-.carousel-card {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    background: #ffffff;
-    border: 1px solid #eef2f4;
-}
+			/* Elegant card presentation for gallery images */
+			.carousel-card {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				border-radius: 6px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+				background: #ffffff;
+				border: 1px solid #eef2f4;
+			}
 
-.carousel-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Prevents stretching, clips images uniformly */
-}
+			.carousel-card img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover; /* Prevents stretching, clips images uniformly */
+			}
 
-@keyframes autoRunCarousel {
-    from {
-        left: 100%;
-    }
-    to {
-        left: calc(var(--width) * -1);
-    }
-}
+			@keyframes autoRunCarousel {
+				from {
+					left: 100%;
+				}
+				to {
+					left: calc(var(--width) * -1);
+				}
+			}
 
-/* Hover States: Softly dims adjacent items and brightens the targeted item */
-.carousel-slider:hover .list .item {
-    animation-play-state: paused !important;
-    filter: grayscale(0.4) brightness(0.9);
-}
+			/* Hover States: Softly dims adjacent items and brightens the targeted item */
+			.carousel-slider:hover .list .item {
+				animation-play-state: paused !important;
+				filter: grayscale(0.4) brightness(0.9);
+			}
 
-.carousel-slider .list .item:hover {
-    filter: grayscale(0) brightness(1);
-    transform: scale(1.04); /* Subtle interactive scaling hint */
-}
+			.carousel-slider .list .item:hover {
+				filter: grayscale(0) brightness(1);
+				transform: scale(1.04); /* Subtle interactive scaling hint */
+			}
 
-/* --- Mobile Viewport Responsiveness --- */
-@media screen and (max-width: 736px) {
-    .carousel-slider {
-        /* Automatically downsizes image targets dynamically on phone viewports */
-        --width: 150px !important;
-        --height: 150px !important;
-    }
-    .carousel-section {
-        padding: 2.5em 0;
-    }
-}
+			/* --- Mobile Viewport Responsiveness --- */
+			@media screen and (max-width: 736px) {
+				.carousel-slider {
+					/* Automatically downsizes image targets dynamically on phone viewports */
+					--width: 150px !important;
+					--height: 150px !important;
+				}
+				.carousel-section {
+					padding: 2.5em 0;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -329,191 +330,319 @@
 			</div>
 
 			<section class="wrapper style1">
-    <div class="container">
-        <header class="major">
-            <h2>Our Foundation Gallery</h2>
-            <p>A visual glimpse inside our daily impact, sustainable agricultural projects, and educational initiatives.</p>
-        </header>
+				<div class="container">
+					<header class="major">
+						<h2>Our Foundation Gallery</h2>
+						<p>A visual glimpse inside our daily impact, sustainable agricultural projects, and educational initiatives.</p>
+					</header>
 
-        <div class="gallery-grid">
+					<div class="gallery-grid">
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="1.jpeg" alt="Empowering vulnerable children through education" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Primary Education</h4>
-                    <p>Securing early educational pathways for vulnerable children.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="1.jpeg" alt="Empowering vulnerable children through education" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Primary Education</h4>
+								<p>Securing early educational pathways for vulnerable children.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="3.jpeg" alt="Child welfare support" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Holistic Advocacy</h4>
-                    <p>Providing safe environments and countering exploitative labor.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="3.jpeg" alt="Child welfare support" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Holistic Advocacy</h4>
+								<p>Providing safe environments and countering exploitative labor.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="33.jpeg" alt="Mentoring sessions highlighting accountability" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Ethics & Leadership</h4>
-                    <p>Mentorship programming emphasizing character and integrity.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="33.jpeg" alt="Mentoring sessions highlighting accountability" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Ethics & Leadership</h4>
+								<p>Mentorship programming emphasizing character and integrity.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="444.jpeg" alt="Students gaining standard computer literacy skills" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Digital Literacy</h4>
-                    <p>Equipping rural youth with vital computing techniques.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="444.jpeg" alt="Students gaining standard computer literacy skills" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Digital Literacy</h4>
+								<p>Equipping rural youth with vital computing techniques.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="55.jpeg" alt="Children exploring sports and creative arts" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Talent Nurturing</h4>
-                    <p>Rebuilding confidence via creative arts, music, and sports.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="55.jpeg" alt="Children exploring sports and creative arts" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Talent Nurturing</h4>
+								<p>Rebuilding confidence via creative arts, music, and sports.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="555.jpeg" alt="Sustainable agricultural farming" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Agricultural Trades</h4>
-                    <p>Vocational foundations in self-reliant farming enterprises.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="555.jpeg" alt="Sustainable agricultural farming" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Agricultural Trades</h4>
+								<p>Vocational foundations in self-reliant farming enterprises.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="s.jpg" alt="Spiritual growth activities" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Spiritual Growth</h4>
-                    <p>Guided mentorship rooted in love, faith, and local service.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="s.jpg" alt="Spiritual growth activities" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Spiritual Growth</h4>
+								<p>Guided mentorship rooted in love, faith, and local service.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="2.jpeg" alt="Community integration outreach" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Community Outreach</h4>
-                    <p>Strengthening public health awareness and local literacy.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="2.jpeg" alt="Community integration outreach" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Community Outreach</h4>
+								<p>Strengthening public health awareness and local literacy.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="666.jpeg" alt="Vocational skills training" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Vocational Focus</h4>
-                    <p>Practical enterprise building skills for self-sufficiency.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="666.jpeg" alt="Vocational skills training" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Vocational Focus</h4>
+								<p>Practical enterprise building skills for self-sufficiency.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="999.jpeg" alt="Social integration and community" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Social Integration</h4>
-                    <p>Breaking generational stigmas through comprehensive support.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="999.jpeg" alt="Social integration and community" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Social Integration</h4>
+								<p>Breaking generational stigmas through comprehensive support.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item) -->
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="99.jpg" alt="Economic empowerment projects" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Economic Security</h4>
-                    <p>Ensuring paths toward stable, exploitative-free livelihoods.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="99.jpg" alt="Economic empowerment projects" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Economic Security</h4>
+								<p>Ensuring paths toward stable, exploitative-free livelihoods.</p>
+							</div>
+						</div>
 
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="hero.jpeg" alt="El-Shaddai Foundation center view" />
-                </div>
-                <div class="gallery-caption">
-                    <h4>Foundation Center</h4>
-                    <p>Our operational framework base offering radical hope.</p>
-                </div>
-            </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="hero.jpeg" alt="El-Shaddai Foundation center view" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Foundation Center</h4>
+								<p>Our operational framework base offering radical hope.</p>
+							</div>
+						</div>
 
-        </div>
-        </div>
-</section>
+						<!-- --- INTEGRATED RECENT OUTREACH ENTRIES --- -->
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="Bibles1.jpg" alt="Bibles distribution to students in village schools" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Scripture Distribution</h4>
+								<p>Nurturing faith and deep spiritual growth among students in rural schools.</p>
+							</div>
+						</div>
 
-<section class="carousel-section">
-    <div class="carousel-container">
-        
-        <header class="major" style="text-align: center; margin-bottom: 2em;">
-            <h2>Impact Snapshots at a Glance</h2>
-            <p>Moving forward together to build long-term communal reliance.</p>
-        </header>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="Bibles2.jpg" alt="Pupils lined up to receive copies of the Holy Bible" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Bible Outreach</h4>
+								<p>Equipping village schools around Katakwi with essential Christian books.</p>
+							</div>
+						</div>
 
-        <div class="carousel-slider" style="--width: 220px; --height: 180px; --quantity: 9;">
-            <div class="list">
-                
-                <div class="item" style="--position: 1">
-                    <div class="carousel-card"><img src="00000.jpg" alt="Primary Schooling Program" /></div>
-                </div>
-                
-                <div class="item" style="--position: 2">
-                    <div class="carousel-card"><img src="66666.jpg" alt="Child Advocacy and Protection" /></div>
-                </div>
-                
-                <div class="item" style="--position: 3">
-                    <div class="carousel-card"><img src="77777.jpg" alt="Mentorship Activities" /></div>
-                </div>
-                
-                <div class="item" style="--position: 4">
-                    <div class="carousel-card"><img src="99999.jpg" alt="Digital Infrastructure Literacy" /></div>
-                </div>
-                
-                <div class="item" style="--position: 5">
-                    <div class="carousel-card"><img src="55.jpeg" alt="Recreational and Creative Expression" /></div>
-                </div>
-                
-                <div class="item" style="--position: 6">
-                    <div class="carousel-card"><img src="555.jpeg" alt="Agricultural Skills Foundation" /></div>
-                </div>
-                
-                <div class="item" style="--position: 7">
-                    <div class="carousel-card"><img src="s.jpg" alt="Faith and Spiritual Support" /></div>
-                </div>
-                
-                <div class="item" style="--position: 8">
-                    <div class="carousel-card"><img src="2.jpeg" alt="Community Health Initiatives" /></div>
-                </div>
-                
-                <div class="item" style="--position: 9">
-                    <div class="carousel-card"><img src="666.jpeg" alt="Vocational Enterprise Training" /></div>
-                </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="ChristianBooks.jpg" alt="Group of students holding newly received Christian books" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Christian Literature</h4>
+								<p>Fostering values-based mentorship using guided theological texts.</p>
+							</div>
+						</div>
 
-            </div>
-        </div>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="ChristianBooks2.jpg" alt="Pupils joyfully celebrating sports items and book donations" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Sports & Reading Resources</h4>
+								<p>Distributing soccer items alongside educational booklets to active youths.</p>
+							</div>
+						</div>
 
-    </div>
-</section>
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="schorlastic1.jpg" alt="Pupils raising scholastic materials distributed in classrooms" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Scholastic Assistance</h4>
+								<p>Removing learning boundaries by supplying vital books and papers.</p>
+							</div>
+						</div>
+
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="Schorlastic2.jpg" alt="Classroom filled with students receiving educational supplies" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Academic Resource Drive</h4>
+								<p>Mitigating school drop-out rates directly inside remote classrooms.</p>
+							</div>
+						</div>
+
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="schorlastic3.jpg" alt="Students raising hands during scholastic supply distribution" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Village Educational Aid</h4>
+								<p>Empowering local pupils with direct resources for academic excellence.</p>
+							</div>
+						</div>
+
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="schorlastic4.jpg" alt="Outdoor gathering for book and sports supplies distribution" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Holistic School Care</h4>
+								<p>Providing basic utilities, scholastic material, and moral guidance packs.</p>
+							</div>
+						</div>
+
+						<div class="gallery-item">
+							<div class="gallery-image-wrapper">
+								<img src="Schorlastic5.jpg" alt="Teachers and outreach organizers standing with school students" />
+							</div>
+							<div class="gallery-caption">
+								<h4>Community Field Outreach</h4>
+								<p>Collaborating with local schools around Katakwi to sustain student development.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="carousel-section">
+				<div class="carousel-container">
+					
+					<header class="major" style="text-align: center; margin-bottom: 2em;">
+						<h2>Impact Snapshots at a Glance</h2>
+						<p>Moving forward together to build long-term communal reliance.</p>
+					</header>
+
+					<!-- Quantity property updated dynamically to 18 to encompass all old + new carousel items safely -->
+					<div class="carousel-slider" style="--width: 220px; --height: 180px; --quantity: 18;">
+						<div class="list">
+							
+							<div class="item" style="--position: 1">
+								<div class="carousel-card"><img src="00000.jpg" alt="Primary Schooling Program" /></div>
+							</div>
+							
+							<div class="item" style="--position: 2">
+								<div class="carousel-card"><img src="66666.jpg" alt="Child Advocacy and Protection" /></div>
+							</div>
+							
+							<div class="item" style="--position: 3">
+								<div class="carousel-card"><img src="77777.jpg" alt="Mentorship Activities" /></div>
+							</div>
+							
+							<div class="item" style="--position: 4">
+								<div class="carousel-card"><img src="99999.jpg" alt="Digital Infrastructure Literacy" /></div>
+							</div>
+							
+							<div class="item" style="--position: 5">
+								<div class="carousel-card"><img src="55.jpeg" alt="Recreational and Creative Expression" /></div>
+							</div>
+							
+							<div class="item" style="--position: 6">
+								<div class="carousel-card"><img src="555.jpeg" alt="Agricultural Skills Foundation" /></div>
+							</div>
+							
+							<div class="item" style="--position: 7">
+								<div class="carousel-card"><img src="s.jpg" alt="Faith and Spiritual Support" /></div>
+							</div>
+							
+							<div class="item" style="--position: 8">
+								<div class="carousel-card"><img src="2.jpeg" alt="Community Health Initiatives" /></div>
+							</div>
+							
+							<div class="item" style="--position: 9">
+								<div class="carousel-card"><img src="666.jpeg" alt="Vocational Enterprise Training" /></div>
+							</div>
+
+							<!-- --- NEW ADDITIONS EXTENDING SLIDER SYSTEM --- -->
+							<div class="item" style="--position: 10">
+								<div class="carousel-card"><img src="Bibles1.jpg" alt="Bibles Distribution Outreach" /></div>
+							</div>
+
+							<div class="item" style="--position: 11">
+								<div class="carousel-card"><img src="Bibles2.jpg" alt="Scriptural Support Village Programs" /></div>
+							</div>
+
+							<div class="item" style="--position: 12">
+								<div class="carousel-card"><img src="ChristianBooks.jpg" alt="Christian Literature Distribution" /></div>
+							</div>
+
+							<div class="item" style="--position: 13">
+								<div class="carousel-card"><img src="ChristianBooks2.jpg" alt="Sports Items and Mentorship Literature" /></div>
+							</div>
+
+							<div class="item" style="--position: 14">
+								<div class="carousel-card"><img src="schorlastic1.jpg" alt="Scholastic Materials Handout" /></div>
+							</div>
+
+							<div class="item" style="--position: 15">
+								<div class="carousel-card"><img src="Schorlastic2.jpg" alt="Academic Equipment In-Classroom" /></div>
+							</div>
+
+							<div class="item" style="--position: 16">
+								<div class="carousel-card"><img src="schorlastic3.jpg" alt="Rural School Educational Supplies" /></div>
+							</div>
+
+							<div class="item" style="--position: 17">
+								<div class="carousel-card"><img src="schorlastic4.jpg" alt="Village Resource Network Development" /></div>
+							</div>
+
+							<div class="item" style="--position: 18">
+								<div class="carousel-card"><img src="Schorlastic5.jpg" alt="Student Provisions Program Support" /></div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</section>
 
 			<div id="footer">
 				<div class="container">
@@ -577,16 +706,17 @@
 					<img src="logo.jpg" alt="El-Shaddai Orphanage Logo" class="bottom-Logo-img" />
 					<ul class="menu">
 						<li>&copy; El-Shaddai Orphanage Foundation. All rights reserved.</li>
-						
 					</ul>
 				</div>
 
-			</div> </div> <script src="assets/js/jquery.min.js"></script>
+			</div> 
+		</div> 
+		
+		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.dropotron.min.js"></script>
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
