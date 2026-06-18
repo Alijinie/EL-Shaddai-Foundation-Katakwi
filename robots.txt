@@ -1,0 +1,16 @@
+# Allow all standard web crawlers and AI bots
+User-agent: *
+Allow: /
+
+# Specifically ensure AI indexers are allowed
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Point to the sitemap (Make sure you generate a sitemap.xml eventually)
+Sitemap: https://www.el-shaddaifoundation.org/sitemap.xml
